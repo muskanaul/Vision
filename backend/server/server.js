@@ -22,19 +22,19 @@ app.post('/upload', upload.single('photo'), async (req, res) => {
     let returnObj = {}
 
     if(req.file) {
-        const temp = await getDepth(req.file.path)
+        console.log(req.file)
+        // console.log(__dirname+"/"+req.file.path)
+        azureInfo = await callAzure(__dirname+"/"+req.file.path);
+
+        const temp = await getDepth(__dirname+"/"+req.file.path)
         returnObj.processed_url = req.get('Host') + `/images/${req.file.filename}_processed.jpg`
         returnObj.processed_b64 = await fs.readFileSync(`./uploads/images/${req.file.filename}_processed.jpg`, 'base64');
+        returnObj.azureInfo = azureInfo
         res.json(returnObj);
     }
     else{
         throw 'No file was submitted';
     }
-
-    azureInfo = await callAzure(__dirname+"/"+req.file.path);
-    console.log(azureInfo)
-    
-    res.send(azureInfo)
 });
 
 app.listen(port, () => console.log(`Example app listening on port1 ${port}!`))
