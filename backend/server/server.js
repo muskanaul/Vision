@@ -3,6 +3,7 @@ const multer = require('multer')
 const upload = multer({ dest: 'uploads/images' });
 const fs = require('fs')
 const axios = require('axios')
+const tts = require('./TTSSample')
 
 const dotenv = require('dotenv')
 
@@ -18,18 +19,31 @@ app.get('/', (req, res) => res.send('Hello World!'))
 
 app.use(express.static('public'));
 
-app.post('/upload', upload.single('photo'), async (req, res) => {
+let prevCaption = ""
+
+app.post('/upload', upload.single('file'), async (req, res) => {
     let returnObj = {}
 
     if(req.file) {
         console.log(req.file)
-        // console.log(__dirname+"/"+req.file.path)
-        azureInfo = await callAzure(__dirname+"/"+req.file.path);
 
-        const temp = await getDepth(__dirname+"/"+req.file.path)
+        const msPromises = new Promise( async (res, rej) => {
+            let tempAzureInfo = await callAzure(__dirname+"/"+req.file.path);
+            if(prevCaption !== tempAzureInfo.description.captions[0].text){
+                await tts.main(tempAzureInfo.description.captions[0].text)
+                prevCaption = tempAzureInfo.description.captions[0].text
+                returnObj.url2Wav = "https://8c714a8e.ngrok.io/sounds/TTSOutput.wav"
+            }
+            res(tempAzureInfo)
+        })
+
+        const depthPromise = getDepth(__dirname+"/"+req.file.path)
+
+        const [ azureData, depthData ] = await Promise.all([msPromises, depthPromise])
+
         returnObj.processed_url = req.get('Host') + `/images/${req.file.filename}_processed.jpg`
         returnObj.processed_b64 = await fs.readFileSync(`./uploads/images/${req.file.filename}_processed.jpg`, 'base64');
-        returnObj.azureInfo = azureInfo
+        returnObj.azureInfo = azureData
         res.json(returnObj);
     }
     else{
