@@ -33,8 +33,10 @@ local.properties
 # node.js
 #
 node_modules/
+.env
 npm-debug.log
 yarn-error.log
+uploads/images
 
 # BUCK
 buck-out/
