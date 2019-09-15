@@ -46,7 +46,7 @@ export default class Camera extends PureComponent {
             isCapturing: !this.state.isCapturing,
         })
         if(!this.state.isCapturing){
-            let camera_timer = setInterval(this.takePicture, 5000)
+            let camera_timer = setInterval(this.takePicture, 8000)
             this.setState({
                 timer: camera_timer,
             });
@@ -133,7 +133,7 @@ export default class Camera extends PureComponent {
                 //alert("current b64: "+ this.state.current_b64);
                 console.log(responseJson);
                 if(responseJson.url2Wav){
-                    this.playSound(url2Wav);
+                    this.playSound(responseJson.url2Wav);
                 }
             })
             .catch((error) => {
