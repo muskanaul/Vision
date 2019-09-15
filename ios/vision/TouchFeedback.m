@@ -8,7 +8,7 @@
 
 #import <React/RCTBridgeModule.h>
 
-@interface RCT_EXTERN_MODULE(Vibration, NSObject)
+@interface RCT_EXTERN_MODULE(TouchFeedback, NSObject)
 RCT_EXTERN_METHOD(vibrateHigh)
 RCT_EXTERN_METHOD(vibrateMedium)
 RCT_EXTERN_METHOD(vibrateLow)
