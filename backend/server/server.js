@@ -2,9 +2,9 @@ const express = require('express')
 const multer = require('multer')
 const upload = multer({dest: __dirname + '/uploads/images'});
 const fs = require('fs')
-
 const app = express()
 const port = 3000
+const getDepth = require('./helpers/depth').getDepth
 
 app.get('/', (req, res) => res.send('Hello World!'))
 
@@ -37,4 +37,11 @@ app.post('/upload', upload.single('photo'), (req, res) => {
 
 });
 
-app.listen(port, () => console.log(`Example app listening on port1 ${port}!`))
+// app.listen(port, () => console.log(`Example app listening on port1 ${port}!`))
+
+async function test() {
+    const temp = await getDepth("jh")
+    console.log("complete")
+}
+
+test()
