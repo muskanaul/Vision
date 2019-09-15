@@ -2,13 +2,14 @@
   "dependencies": {
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
+    "fs": "0.0.1-security",
     "get-stream": "^5.1.0",
     "multer": "^1.4.2",
     "nodemon": "^1.19.2",
-    "fs": "0.0.1-security",
     "readline-sync": "^1.4.9",
     "request": "^2.88.0",
     "request-promise": "^4.2.4",
+    "sharp": "^0.23.0",
     "xmlbuilder": "^10.1.1"
   },
   "scripts": {

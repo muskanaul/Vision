@@ -7,6 +7,7 @@ const exec = require("child_process").exec
  * @return {Object} { stdout: String, stderr: String }
  */
 async function sh(cmd) {
+  console.log("started")
   return new Promise(function (resolve, reject) {
     exec(cmd, (err, stdout, stderr) => {
       if (err) {
