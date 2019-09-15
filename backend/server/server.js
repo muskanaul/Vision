@@ -13,6 +13,8 @@ app.get('/', (req, res) => res.send('Hello World!'))
 app.use(express.static('public'));
 
 
+
+
 app.post('/upload', upload.single('file'),async (req, res) => {
     let returnObj = {}
     console.log(req.file)
