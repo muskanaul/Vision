@@ -10,6 +10,7 @@ dotenv.config()
 
 const app = express()
 const port = 3000
+const getDepth = require('./helpers/depth').getDepth
 
 app.get('/', (req, res) => res.send('Hello World!'))
 
