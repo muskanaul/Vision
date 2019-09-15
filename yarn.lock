@@ -4879,6 +4879,11 @@ react-native-pixel-color@^0.0.2:
   resolved "https://registry.yarnpkg.com/react-native-pixel-color/-/react-native-pixel-color-0.0.2.tgz#a41140015064a317f6ee4eba8f449fc03d09363e"
   integrity sha1-pBFAAVBkoxf27k66j0SfwD0JNj4=
 
+react-native-view-shot@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/react-native-view-shot/-/react-native-view-shot-3.0.2.tgz#daccaec5b8038a680b17533ff7e72876e68c7d0d"
+  integrity sha512-JZOkGo2jzSX2b7N6N2uDr0wQjSz+QmBtY8jzeo0XJY6bLOfaY5nmWyYxDmDRoSpKiFkGTCkyhUqNnjo6lXOtEw==
+
 react-native@0.59.3:
   version "0.59.3"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.59.3.tgz#b984bbe457f63d5515046d32ea5721fd22843548"

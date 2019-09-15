@@ -12,7 +12,8 @@
     "react-native-camera": "^3.4.0",
     "react-native-haptic": "^1.0.1",
     "react-native-haptic-feedback": "^1.8.2",
-    "react-native-pixel-color": "^0.0.2"
+    "react-native-pixel-color": "^0.0.2",
+    "react-native-view-shot": "^3.0.2"
   },
   "devDependencies": {
     "babel-core": "^7.0.0-bridge.0",
