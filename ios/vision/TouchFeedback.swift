@@ -9,8 +9,8 @@
 import Foundation
 import AudioToolbox.AudioServices
 
-@objc(Vibration)
-class Vibration: NSObject {
+@objc(TouchFeedback)
+class TouchFeedback: NSObject {
   @objc
   func vibrateHigh() {
     let peek = SystemSoundID(1521)
@@ -30,6 +30,11 @@ class Vibration: NSObject {
     let peek = SystemSoundID(1519)
     AudioServicesPlaySystemSound(peek)
     print("vibrating low!")
+  }
+  
+  @objc
+  static func requiresMainQueueSetup() -> Bool {
+    return true
   }
 }
 

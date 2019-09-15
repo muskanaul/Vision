@@ -1,7 +1,4 @@
 /**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
  * @format
  * @flow
  * @lint-ignore-every XPLATJSCOPYRIGHT1
@@ -9,13 +6,7 @@
 import React, { PureComponent } from 'react';
 import { AppRegistry, StyleSheet, Text, TouchableOpacity, NativeModules, View, Vibration} from 'react-native';
 import { RNCamera } from 'react-native-camera';
-import ReactNativeHapticFeedback from "react-native-haptic-feedback";
-import ReactNativeHaptic from 'react-native-haptic';
 
-const options = {
-  enableVibrateFallback: true,
-  ignoreAndroidSystemSettings: false
-};
 
 export default class App extends PureComponent {
   handleVibration(event){
@@ -42,7 +33,7 @@ export default class App extends PureComponent {
           <TouchableOpacity onPress={this.takePicture.bind(this)} style={styles.capture}>
             <Text style={{ fontSize: 14 }}> SNAP </Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => NativeModules.Vibration.vibrateHigh()} style={styles.capture}>
+          <TouchableOpacity onPress={() => NativeModules.TouchFeedback.vibrateHigh()} style={styles.capture}>
             <Text style={{ fontSize: 14 }}> Vibrate </Text>
           </TouchableOpacity>
         </View>
